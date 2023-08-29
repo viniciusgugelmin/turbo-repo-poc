@@ -1,0 +1,15 @@
+Turborepo
+- Comando para instalar: npx create-turbo@latest
+- Tempo de instalação: 1m5,734s
+- Tamanho do projeto pós-instalação: 372 MB
+- Setup pós instalação: Typescript, Next, 2 projetos, 3 packages personalizados (ui, tsconfig, eslint-config-custom)
+Vite
+- Comando para instalar: npx vite@latest
+- Tempo de instalação: 0m8,941s + 0m11,426s (npm i)
+- Tamanho do projeto pós-instalação: 48,0 MB 
+- Setup pós instalação: Javascript, React, 1 projeto, eslint
+CRA
+- Comando para instalar: npx create-react-app cra
+- Tempo de instalação: 1m54,599s
+- Tamanho do projeto pós-instalação: 229 MB
+- Setup pós instalação: Javascript, React, 1 projeto, testing-library
