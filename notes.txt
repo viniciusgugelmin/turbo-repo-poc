@@ -3,13 +3,25 @@ Turborepo
 - Tempo de instalação: 1m5,734s
 - Tamanho do projeto pós-instalação: 372 MB
 - Setup pós instalação: Typescript, Next, 2 projetos, 3 packages personalizados (ui, tsconfig, eslint-config-custom)
+- Tempo para primeira inicialização: 0m22,514s
+- Tempo para segunda inicialização: 0m11,036s
+- Tempo para primeiro build: 1m4,473s
+- Tempo para segundo build: 0m2,956s
 Vite
 - Comando para instalar: npx vite@latest
 - Tempo de instalação: 0m8,941s + 0m11,426s (npm i)
 - Tamanho do projeto pós-instalação: 48,0 MB 
 - Setup pós instalação: Javascript, React, 1 projeto, eslint
+- Tempo para primeira inicialização: 0m7,430s
+- Tempo para segunda inicialização: 0m2,463s
+- Tempo para primeiro build: 0m2,805s
+- Tempo para segundo build: -
 CRA
 - Comando para instalar: npx create-react-app cra
 - Tempo de instalação: 1m54,599s
 - Tamanho do projeto pós-instalação: 229 MB
 - Setup pós instalação: Javascript, React, 1 projeto, testing-library
+- Tempo para primeira inicialização: 1m12,895s
+- Tempo para segunda inicialização: 0m6,793s
+- Tempo para primeiro build: 0m21,886s
+- Tempo para segundo build: -
