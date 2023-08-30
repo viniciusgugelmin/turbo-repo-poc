@@ -1,5 +1,6 @@
 import react from "@vitejs/plugin-react";
 
+console.log(process.env.VITE_BASE_URL)
 export default {
   plugins: [react()],
   server: {
