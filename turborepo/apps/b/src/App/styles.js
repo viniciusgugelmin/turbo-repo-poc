@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 const App = styled.div`
     ${({ showMF }) => showMF && css`
-        border: 2px solid red;
+        border: 2px solid blue;
         margin: 4px;
     `}
 

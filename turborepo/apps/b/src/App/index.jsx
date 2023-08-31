@@ -1,41 +1,40 @@
-import { useContext } from "react";
-
-import { GlobalContext } from "ui/context/index.js";
-
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
-
-import { Template } from "ui";
-
-import "./styles.css";
+import { useContext, useState } from 'react';
+import { Button, Header } from 'ui';
+import loremIpsum from '../assets/loremIpsum.json'
+import { Credentials } from "credentials"
+import { S } from './styles';
+import { GlobalContext } from 'context';
 
 function App() {
-  const { count, setCount } = useContext(GlobalContext);
+  const [validCredential, setValidCredential] = useState(false)
+  const { showMF } = useContext(GlobalContext)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Template />
-    </>
+    <S.App showMF={showMF}>
+      <Header title="Lorem Ipsum">
+        <S.ValidateStatus>{validCredential ? "Credencial válida" : "Credencial inválida"}</S.ValidateStatus>
+        <Button link="http://localhost:3000">Home</Button>
+        <Button link="http://localhost:6006/">Storybook</Button>
+      </Header>
+
+      <table style={{ tableLayout: "fixed" }}>
+        <colgroup>
+          <col style={{ width: "50%" }} />
+          <col style={{ width: "50%" }} />
+        </colgroup>
+        <tr>
+          <th>Frase</th>
+          <th>Status</th>
+        </tr>
+        {loremIpsum.phrases.map(({ phrase, status }, index) => (
+          <tr key={`lorem-ipsum-phrase-${index}`}>
+            <td>{phrase}</td>
+            <td style={{ textAlign: "center" }}>{status}</td>
+          </tr>
+        ))}
+      </table>
+      <Credentials state={{ validCredential, setValidCredential }} />
+    </S.App>
   );
 }
 

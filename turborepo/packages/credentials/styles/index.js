@@ -1,6 +1,11 @@
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
 
 const Credentials = styled.div`
+    ${({ showMF }) => showMF && css`
+        border: 1px solid green;
+        margin: 4px;
+    `}
+
     background: white;
     color: black;
     padding: 8px;

@@ -1,18 +1,22 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
-import { Header } from 'ui';
+import { Button, Header } from 'ui';
 import loremIpsum from '../assets/loremIpsum.json'
 import { Credentials } from "credentials"
 
 import { S } from './styles';
+import { GlobalContext } from 'context';
 
 function App() {
   const [validCredential, setValidCredential] = useState(false)
+  const { showMF } = useContext(GlobalContext)
 
   return (
-    <S.App>
+    <S.App showMF={showMF}>
       <Header title="Lorem Ipsum">
         <S.ValidateStatus>{validCredential ? "Credencial válida" : "Credencial inválida"}</S.ValidateStatus>
+        <Button link="http://localhost:3001">Tabela</Button>
+        <Button link="http://localhost:6006/">Storybook</Button>
       </Header>
 
 

@@ -15,7 +15,8 @@
     "styled-components": "^6.0.7",
     "viteconfig": "*",
     "ui": "*",
-    "credentials": "*"
+    "credentials": "*",
+    "context": "*"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

@@ -1,8 +1,11 @@
 import { Button, Input } from "ui"
 import { S } from "./styles"
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { GlobalContext } from 'context'
 
-export const Credentials = ({ state }) => {
+export const CredentialsComponent = ({ state }) => {
+    const { showMF } = useContext(GlobalContext)
+
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState()
@@ -24,7 +27,7 @@ export const Credentials = ({ state }) => {
     }
 
     return (
-        <S.Credentials>
+        <S.Credentials showMF={showMF}>
             Insira as credenciais:
             <div>
                 <Input label="username" props={{ value: username, onChange: ({ target }) => setUsername(target.value) }} />
