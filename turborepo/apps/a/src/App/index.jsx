@@ -1,11 +1,16 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { useContext } from "react";
+
+import { GlobalContext } from "ui/context/index.js";
+
+import reactLogo from "../assets/react.svg";
 import viteLogo from "/vite.svg";
-import "./App.css";
+
 import { Template } from "ui";
 
+import "./styles.css";
+
 function App() {
-  const [count, setCount] = useState(0);
+  const { count, setCount } = useContext(GlobalContext);
 
   return (
     <>
@@ -34,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };

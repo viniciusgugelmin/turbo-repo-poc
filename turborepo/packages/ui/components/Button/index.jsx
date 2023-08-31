@@ -1,11 +1,5 @@
-import { SButton } from "./styles"
+import { S } from "./styles";
 
-export const Button = ({
-    label = "Boop",
-}) => {
-    return (
-        <SButton>
-            {label}
-        </SButton>
-    );
+export const Button = ({ label = "Boop" }) => {
+  return <S.Button>{label}</S.Button>;
 };

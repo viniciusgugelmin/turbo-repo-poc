@@ -1,10 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useContext } from "react";
+
+import { GlobalContext } from "ui/context/index.js";
+
+import reactLogo from "../assets/react.svg";
+import viteLogo from "/vite.svg";
+
+import { Template } from "ui";
+
+import "./styles.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { count, setCount } = useContext(GlobalContext);
 
   return (
     <>
@@ -28,8 +34,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Template />
     </>
-  )
+  );
 }
 
-export default App
+export { App };

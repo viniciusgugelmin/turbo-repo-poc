@@ -1,2 +1,1 @@
-export { Template } from "./components/Template";
-export { Button } from "./components/Button";
+export { Button, Template } from "./components";
