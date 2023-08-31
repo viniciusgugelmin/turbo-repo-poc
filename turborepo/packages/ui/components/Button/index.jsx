@@ -1,7 +1,5 @@
-import { S } from "./styles";
+import { S } from "./styles"
 
-const CLASS = "ui__button"
-
-export const Button = ({ label = "Boop" }) => {
-  return <S.Button className={CLASS}>{label}</S.Button>;
+export const Button = (props) => {
+  return <S.Button {...props} />;
 };
