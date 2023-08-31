@@ -6,6 +6,7 @@ const Credentials = styled.div`
         margin: 4px;
     `}
 
+    width: fit-content;
     background: white;
     color: black;
     padding: 8px;

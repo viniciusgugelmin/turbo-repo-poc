@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 
 import { Button, Header } from 'ui';
+import { Chart } from 'chart';
 import loremIpsum from '../assets/loremIpsum.json'
 import { Credentials } from "credentials"
 
@@ -8,21 +9,26 @@ import { S } from './styles';
 import { GlobalContext } from 'context';
 
 function App() {
-  const [validCredential, setValidCredential] = useState(false)
   const { showMF } = useContext(GlobalContext)
+
+  const [validCredential, setValidCredential] = useState(false)
+  const [showChart, setShowChart] = useState(false)
 
   return (
     <S.App showMF={showMF}>
       <Header title="Lorem Ipsum">
-        <S.ValidateStatus>{validCredential ? "Credencial válida" : "Credencial inválida"}</S.ValidateStatus>
+        <S.ValidateStatus valid={validCredential}>{validCredential ? "Credencial válida" : "Credencial inválida"}</S.ValidateStatus>
         <Button link="http://localhost:3001">Tabela</Button>
+        <Button onClick={() => setShowChart(!showChart)}>Estatísticas</Button>
         <Button link="http://localhost:6006/">Storybook</Button>
       </Header>
 
-
-      <Credentials state={{ validCredential, setValidCredential }} />
-      <div>
-        {loremIpsum.phrases.map(({ phrase }, index) => <ul key={`lorem-ipsum-phrase-${index}`}>{phrase}</ul>)}
+      <div className='content'>
+        <div>
+          <Credentials state={{ validCredential, setValidCredential }} />
+          {loremIpsum.phrases.map(({ phrase }, index) => <div className="item" key={`lorem-ipsum-phrase-${index}`}>{phrase}</div>)}
+        </div>
+        {showChart && <Chart />}
       </div>
     </S.App>
   );

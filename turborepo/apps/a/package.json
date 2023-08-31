@@ -16,7 +16,8 @@
     "viteconfig": "*",
     "ui": "*",
     "credentials": "*",
-    "context": "*"
+    "context": "*",
+    "chart": "*"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

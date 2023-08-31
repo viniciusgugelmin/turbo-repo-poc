@@ -20,6 +20,7 @@ export const CredentialsComponent = ({ state }) => {
             state.setValidCredential(true)
             setError(null)
         } else {
+            state.setValidCredential(false)
             setError("Usuário ou senha inválidos")
         }
 

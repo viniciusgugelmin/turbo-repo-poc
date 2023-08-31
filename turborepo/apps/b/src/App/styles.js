@@ -7,6 +7,10 @@ const App = styled.div`
     `}
 
     width: 100vw;
+
+    .content {
+        padding-left: 16px;
+    }
 `
 
 const ValidateStatus = styled.div`
