@@ -7,7 +7,7 @@ const meta = {
 export default meta
 
 const ButtonComponent = (props) => {
-    return <Button {...props} primary label="Button" />
+    return <Button {...props} primary children="Button" />
 }
 
 ButtonComponent.parameters = { pseudo: { hover: true } }

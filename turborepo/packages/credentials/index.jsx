@@ -13,7 +13,6 @@ export const Credentials = ({ state }) => {
     }
 
     const handleTest = () => {
-        console.log('as')
         if (username === "123" && password === "123") {
             state.setValidCredential(true)
             setError(null)
