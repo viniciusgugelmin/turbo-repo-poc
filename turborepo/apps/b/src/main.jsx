@@ -1,7 +1,7 @@
 import React from "react";
 
 import ReactDOM from "react-dom/client";
-import { GlobalContextProvider } from "ui/context";
+import { GlobalContextProvider } from "context";
 
 import { App } from "./App";
 

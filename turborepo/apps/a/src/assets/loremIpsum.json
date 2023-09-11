@@ -1,0 +1,56 @@
+{
+    "phrases": [
+        {
+            "status": "success",
+            "phrase": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+            "status": "success",
+            "phrase": "Praesent volutpat eros at justo cursus, sed convallis urna fringilla."
+        },
+        {
+            "status": "success",
+            "phrase": "Suspendisse vel tortor a nisl tristique accumsan."
+        },
+        {
+            "status": "success",
+            "phrase": "Ut nec lectus nec ligula convallis ullamcorper."
+        },
+        {
+            "status": "success",
+            "phrase": "Vivamus ac tortor sed lorem dignissim vehicula."
+        },
+        {
+            "status": "success",
+            "phrase": "Cras rhoncus nulla nec odio cursus, in ultrices elit venenatis."
+        },
+        {
+            "status": "success",
+            "phrase": "Nullam ac ligula ac augue faucibus convallis id eu nulla."
+        },
+        {
+            "status": "success",
+            "phrase": "Aliquam erat volutpat. Sed quis dapibus ipsum."
+        },
+        {
+            "status": "success",
+            "phrase": "Maecenas euismod lectus at dolor gravida, a convallis elit scelerisque."
+        },
+        {
+            "status": "success",
+            "phrase": "Fusce eget ipsum ut ex ullamcorper venenatis vel vel nulla."
+        },
+        {
+            "status": "success",
+            "phrase": "Curabitur nec felis in mi sollicitudin tincidunt."
+        },
+        {
+            "status": "success",
+            "phrase": "Phasellus nec augue eget tortor fringilla efficitur nec sed urna."
+        },
+        {
+            "status": "success",
+            "phrase": "Donec non nunc at ligula fringilla cursus."
+        }
+    ]
+}

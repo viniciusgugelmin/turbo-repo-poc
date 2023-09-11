@@ -5,7 +5,7 @@
     "dev": "dotenv -e .env.development.local turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "storybook": ""
+    "storybook": "cd apps/workshop && npm run dev"
   },
   "devDependencies": {
     "eslint": "^8.47.0",

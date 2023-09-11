@@ -1,41 +1,36 @@
-import { useContext } from "react";
+import { useContext, useState } from 'react';
 
-import { GlobalContext } from "ui/context/index.js";
+import { Button, Header } from 'ui';
+import { Chart } from 'chart';
+import loremIpsum from '../assets/loremIpsum.json'
+import { Credentials } from "credentials"
 
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
-
-import { Template } from "ui";
-
-import "./styles.css";
+import { S } from './styles';
+import { GlobalContext } from 'context';
 
 function App() {
-  const { count, setCount } = useContext(GlobalContext);
+  const { showMF } = useContext(GlobalContext)
+
+  const [validCredential, setValidCredential] = useState(false)
+  const [showChart, setShowChart] = useState(false)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <S.App showMF={showMF}>
+      <Header title="Lorem Ipsum">
+        <S.ValidateStatus valid={validCredential}>{validCredential ? "Credencial válida" : "Credencial inválida"}</S.ValidateStatus>
+        <Button link="http://localhost:3001">Tabela</Button>
+        <Button onClick={() => setShowChart(!showChart)}>Estatísticas</Button>
+        <Button link="http://localhost:6006/">Storybook</Button>
+      </Header>
+
+      <div className='content'>
+        <div>
+          <Credentials state={{ validCredential, setValidCredential }} />
+          {loremIpsum.phrases.map(({ phrase }, index) => <div className="item" key={`lorem-ipsum-phrase-${index}`}>{phrase}</div>)}
+        </div>
+        {showChart && <Chart />}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Template />
-    </>
+    </S.App>
   );
 }
 

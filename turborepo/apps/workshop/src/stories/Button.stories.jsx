@@ -1,12 +1,17 @@
-// Button.stories.ts|tsx
-import { Button } from 'ui';
+import { Button } from 'ui'
 
 const meta = {
     component: Button,
 };
 
-export default meta;
+export default meta
+
+const ButtonComponent = (props) => {
+    return <Button {...props} primary children="Button" />
+}
+
+ButtonComponent.parameters = { pseudo: { hover: true } }
 
 export const Primary = {
-    render: () => <Button primary label="Button" />,
+    render: ButtonComponent,
 }
