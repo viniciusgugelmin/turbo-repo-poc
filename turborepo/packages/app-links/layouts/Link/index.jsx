@@ -1,7 +1,7 @@
 import {Button} from "ui";
 
 const Link = ({children, app}) => {
-    const baseUrl = import.meta.env.VITE_BASE_URL
+    const baseUrl = import.meta.env.MODE === "development" ? import.meta.env.VITE_BASE_URL : ""
 
     const apps = {
         a: import.meta.env.VITE_A_PATH,
