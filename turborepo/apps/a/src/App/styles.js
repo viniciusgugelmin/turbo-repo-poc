@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 const App = styled.div`
-    ${({ showMF }) => showMF && css`
+    ${({ $showMF }) => $showMF && css`
         border: 2px solid red;
         margin: 4px;
     `}
@@ -25,9 +25,9 @@ const ValidateStatus = styled.div`
     align-items: center;
     justify-content: center;
     padding: 4px 8px;
-    border-radius: 40px;;
+    border-radius: 40px;
 
-    ${({ valid }) => css`background: ${valid ? "#68ff75" : "#ff6868"}`}
+    ${({ $valid }) => css`background: ${$valid ? "#68ff75" : "#ff6868"}`}
 `
 
 export const S = { App, ValidateStatus }

@@ -3,7 +3,7 @@ import { styled, css } from 'styled-components'
 const Chart = styled.div`
     margin-left: 16px;;
     width: fit-content;
-    ${({ showMF }) => showMF && css`
+    ${({ $showMF }) => $showMF && css`
         border: 1px solid orange;
         margin: 4px;
     `}

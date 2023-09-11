@@ -6,6 +6,6 @@ export default defineConfig({
   ...customConfig,
   server: {
     ...customConfig.server,
-    port: process.env.VITE_A_PORT,
+    port: process.env.VITE_A_PATH,
   },
 });

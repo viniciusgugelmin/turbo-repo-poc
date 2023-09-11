@@ -9,7 +9,7 @@ export const ChartComponent = () => {
     const { showMF } = useContext(GlobalContext)
 
     return (
-        <S.Chart showMF={showMF}>
+        <S.Chart $showMF={showMF}>
             <h3>Tempo de execução (segundos)</h3>
             <Chart
                 options={{

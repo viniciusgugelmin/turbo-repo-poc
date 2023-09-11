@@ -3,15 +3,16 @@ import { Button, Header } from 'ui';
 import loremIpsum from '../assets/loremIpsum.json'
 import { S } from './styles';
 import { GlobalContext } from 'context';
+import {Link} from "app-links";
 
 function App() {
   const { showMF } = useContext(GlobalContext)
 
   return (
-    <S.App showMF={showMF}>
+    <S.App $showMF={showMF}>
       <Header title="Lorem Ipsum > Table">
-        <Button link="http://localhost:3000">Home</Button>
-        <Button link="http://localhost:6006/">Storybook</Button>
+        <Link app="a">Home</Link>
+        <Link app="workshop">Storybook</Link>
       </Header>
 
       <div className="content">

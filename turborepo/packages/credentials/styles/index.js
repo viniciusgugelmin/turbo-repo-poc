@@ -1,7 +1,7 @@
 import { styled, css } from 'styled-components'
 
 const Credentials = styled.div`
-    ${({ showMF }) => showMF && css`
+    ${({ $showMF }) => $showMF && css`
         border: 1px solid green;
         margin: 4px;
     `}

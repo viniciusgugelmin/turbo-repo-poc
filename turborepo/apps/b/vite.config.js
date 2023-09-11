@@ -6,6 +6,6 @@ export default defineConfig({
   ...customConfig,
   server: {
     ...customConfig.server,
-    port: process.env.VITE_B_PORT,
+    port: process.env.VITE_B_PATH
   },
 });

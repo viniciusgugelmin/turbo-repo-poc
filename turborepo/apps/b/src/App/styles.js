@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 const App = styled.div`
-    ${({ showMF }) => showMF && css`
+    ${({ $showMF }) => $showMF && css`
         border: 2px solid blue;
         margin: 4px;
     `}

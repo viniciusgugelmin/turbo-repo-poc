@@ -1,11 +1,11 @@
-import { createContext, useEffect, useState } from 'react'
+import {createContext, useEffect, useState} from 'react'
 
 export const GlobalContext = createContext()
 
-export const GlobalContextProvider = ({ children }) => {
+export const GlobalContextProvider = ({children}) => {
     const [showMF, setShowMF] = useState(false)
 
-    const handleKeydown = ({ key, ctrlKey }) => {
+    const handleKeydown = ({key, ctrlKey}) => {
         if (key === "\\" && ctrlKey) {
             setShowMF(!showMF)
         }

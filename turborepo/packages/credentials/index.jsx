@@ -28,7 +28,7 @@ export const CredentialsComponent = ({ state }) => {
     }
 
     return (
-        <S.Credentials showMF={showMF}>
+        <S.Credentials $showMF={showMF}>
             Insira as credenciais:
             <div>
                 <Input label="username" props={{ value: username, onChange: ({ target }) => setUsername(target.value) }} />
