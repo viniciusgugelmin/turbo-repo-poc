@@ -15,5 +15,5 @@ export default {
         target: `${process.env.VITE_BASE_URL}:${process.env.VITE_B_PORT}`,
       },
     },
-  },
+  }
 };
