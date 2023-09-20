@@ -3,6 +3,7 @@ import { useContext, useState, Suspense, lazy } from "react";
 import { Button, Header } from "ui";
 import { Credentials } from "credentials";
 import { Link } from "app-links";
+import "vue-ui2";
 
 import loremIpsum from "../assets/loremIpsum.json";
 
@@ -28,6 +29,7 @@ function App() {
 
   const [validCredential, setValidCredential] = useState(false);
   const [showChart, setShowChart] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   return (
     <S.App $showMF={showMF}>
@@ -50,9 +52,17 @@ function App() {
           ))}
         </div>
         {showChart && (
-          <Suspense fallback={<div>Carregando...</div>}>
-            <L.Chart />
-          </Suspense>
+          <>
+            <Suspense fallback={<div>Carregando...</div>}>
+              <L.Chart />
+            </Suspense>
+            <button-counter
+              counter={counter}
+              onClick={() => setCounter(counter + 1)}
+            >
+              Lorem Ipsum
+            </button-counter>
+          </>
         )}
       </div>
     </S.App>

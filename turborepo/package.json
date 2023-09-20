@@ -20,10 +20,11 @@
     "packages/*"
   ],
   "dependencies": {
+    "chart": "*",
+    "context": "*",
     "dotenv": "^16.3.1",
     "dotenv-cli": "^7.3.0",
     "styled-components": "^6.0.7",
-    "context": "*",
-    "chart": "*"
+    "vue": "^3.3.4"
   }
 }
