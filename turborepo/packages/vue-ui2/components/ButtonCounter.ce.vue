@@ -8,6 +8,7 @@
 </template>
 
 <script>
+console.log('ButtonCounter')
 export default {
   name: "ButtonCounter",
   props: {
@@ -16,9 +17,5 @@ export default {
       default: 0
     },
   },
-
-  mounted() {
-    console.log('ButtonCounter mounted')
-  }
 }
 </script>
