@@ -1,0 +1,151 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ececec;
+}
+
+.header {
+  width: 100vw;
+  height: 68px;
+  background: #0364fe;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header__logo {
+  width: 150px;
+}
+
+.header__navbar {
+  display: flex;
+  gap: 10px;
+}
+
+.header__input-bot {
+  height: 30px;
+  width: 200px;
+  border-radius: 50px;
+}
+
+.header__user {
+  color: white;
+}
+
+.header__navbar__item {
+  height: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.article__tabs {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.article__tabs__item {
+  padding: 10px 20px;
+}
+
+.article__tabs__item-active {
+  background: white;
+}
+
+.tab-container {
+  background: white;
+  display: flex;
+  min-height: 70vh;
+  height: fit-content;
+}
+
+.tab-content {
+  width: 100vw;
+}
+
+.tab-header {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-opts {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-selector {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.status-selector__item {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px 20px;
+  color: white;
+}
+
+.status-selector__label {
+  font-size: 2em;
+}
+
+.execution-selector__item {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 8px;
+}
+
+.execution-container {
+  display: flex;
+}
+
+.execution-table-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  position: absolute;
+  background: #0000008f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.report-modal {
+  background: white;
+  width: 979px;
+  height: 400px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+}

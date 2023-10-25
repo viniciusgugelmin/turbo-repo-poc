@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [...customConfig.plugins, vue()],
   server: {
     ...customConfig.server,
-    port: 5000,
+    port: 5002,
   },
+  assetsInclude: ['**/*.html'],
 });
