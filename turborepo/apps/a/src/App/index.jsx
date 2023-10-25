@@ -1,4 +1,4 @@
-import { useContext, useState, Suspense, lazy } from "react";
+import { useContext, useState, Suspense, lazy, useRef, useEffect } from "react";
 
 import { Button, Header } from "ui";
 import { Credentials } from "credentials";
@@ -54,7 +54,7 @@ function App() {
         {showChart && (
           <>
             <Suspense fallback={<div>Carregando...</div>}>
-              <L.Chart />
+              <L.Ultra.Chart />
             </Suspense>
             <button-counter
               counter={counter}

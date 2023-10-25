@@ -1,4 +1,5 @@
-export { Template } from "./components/Template";
 export { Button } from "./components/Button";
-export { Input } from "./components/Input";
 export { Header } from "./components/Header";
+export { Input } from "./components/Input";
+export { Template } from "./components/Template";
+export { Toast } from "./components/Toast";

@@ -5,7 +5,12 @@
   "main": "./index.jsx",
   "types": "./index.jsx",
   "dependencies": {
+    "context": "*",
+    "primereact": "^10.0.5",
     "react": "^18.2.0",
-    "context": "*"
+    "react-toastify": "^9.1.3"
+  },
+  "devDependencies": {
+    "@types/react-toastify": "^4.1.0"
   }
 }

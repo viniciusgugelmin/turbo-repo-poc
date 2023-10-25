@@ -15,7 +15,11 @@ export default {
     counter: {
       type: Number,
       default: 0
-    },
+    }
   },
+
+  mounted() {
+    console.log('ButtonCounter mounted')
+  }
 }
 </script>
