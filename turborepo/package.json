@@ -11,7 +11,7 @@
     "eslint": "^8.47.0",
     "prettier": "^3.0.2",
     "tsconfig": "*",
-    "turbo": "latest"
+    "turbo": "1.10.4"
   },
   "name": "turborepo",
   "packageManager": "npm@8.19.4",

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intimações</title>
+</head>
+
+<body>
+  <header class="header">
+    <img class="header__logo" alt="oystr-header" src="https://console4.oystr.com.br/brands/oystr/logo-02.svg"></img>
+    <navbar class="header__navbar">
+      <div class="header__navbar__item">Início</div>
+      <div class="header__navbar__item">Robôs</div>
+      <div class="header__navbar__item">Apps</div>
+      <div class="header__navbar__item">Ajuda</div>
+      <div class="header__navbar__item">Sugestões</div>
+      <div class="header__navbar__item">Api</div>
+    </navbar>
+    <div>
+      <input class="header__input-bot" placeholder="Buscar por um robô..."></input>
+      <span class="header__user">user@email.com</span>
+    </div>
+  </header>
+
+  <article class="article">
+    <span class="article__title">Gestão de Intimações</span>
+
+    <div class="article__tabs" id="article-tabs">
+      <div class="article__tabs__item" id="tab-execucoes" name="execucoes">Execuções</div>
+      <div class="article__tabs__item" id="tab-perfis" name="perfis">Perfis</div>
+      <div class="article__tabs__item" id="tab-auditorias" name="auditorias">Auditoria</div>
+      <div class="article__tabs__item" id="tab-partes" name="partes">Partes Sensíveis</div>
+      <div class="article__tabs__item" id="tab-processos" name="processos">Processos Sensíveis</div>
+    </div>
+
+    <section id="root" class="tab-container"></section>
+  </article>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

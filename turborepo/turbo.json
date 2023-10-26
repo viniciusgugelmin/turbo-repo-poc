@@ -22,9 +22,6 @@
       "dotEnv": [
         ".env.development.local"
       ],
-      "dependsOn": [
-        "^build"
-      ],
       "cache": false,
       "persistent": false
     }
