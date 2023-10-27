@@ -1,23 +1,25 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components";
 
 const App = styled.div`
-    ${({ $showMF }) => $showMF && css`
-        border: 2px solid blue;
-        margin: 4px;
+  ${({ $showMF }) =>
+    $showMF &&
+    css`
+      border: 2px solid blue;
+      margin: 4px;
     `}
 
-    width: 100vw;
+  width: 100%;
 
-    .content {
-        padding-left: 16px;
-    }
-`
+  .content {
+    padding-left: 16px;
+  }
+`;
 
 const ValidateStatus = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`;
 
-export const S = { App, ValidateStatus }
+export const S = { App, ValidateStatus };

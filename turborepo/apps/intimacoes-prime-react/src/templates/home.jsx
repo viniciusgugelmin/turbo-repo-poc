@@ -1,119 +1,148 @@
 import { useState } from "react";
+
+import { Button } from "primereact/button";
+import { InputText } from "primereact/inputtext";
+import { Calendar } from "primereact/calendar";
+import { Card } from "primereact/card";
+import { Dialog } from "primereact/dialog";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { FilterMatchMode } from "primereact/api";
+import { Accordion, AccordionTab } from "primereact/accordion";
+
 import execution from "../assets/execution.json";
 import report from "../assets/report.json";
+
 import style from "../index.css?inline";
 
 const HomeExecutions = () => {
   const [relatorios, setRelatorios] = useState(false);
+  const [dates, setDates] = useState(null);
+  const [filters, setFilters] = useState({
+    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    processo: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    dataInicio: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    evento: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    parte: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  });
+  const [globalFilterValue, setGlobalFilterValue] = useState("");
 
-  const getTableContent = (data, columns) => {
-    return data.slice(0, 10).map((dataRow, index) => (
-      <tr key={index}>
-        {columns.map((col, i) => (
-          <td key={i}>{dataRow[col]}</td>
-        ))}
-      </tr>
-    ));
+  const onGlobalFilterChange = (e) => {
+    const value = e.target.value;
+    let _filters = { ...filters };
+
+    _filters["global"].value = value;
+
+    setFilters(_filters);
+    setGlobalFilterValue(value);
   };
 
-  const tableContent = getTableContent(execution, [
-    "processo",
-    "dataInicio",
-    "evento",
-    "parte",
-  ]);
-
-  const modalTableContent = getTableContent(report, [
-    "status",
-    "type",
-    "includedAutomations",
-    "createdAt",
-    "donwloadedAt",
-  ]);
+  const header = (
+    <div className="flex justify-content-end">
+      <span className="p-input-icon-left">
+        <i className="pi pi-search" />
+        <InputText
+          value={globalFilterValue}
+          onChange={onGlobalFilterChange}
+          placeholder="Keyword Search"
+        />
+      </span>
+    </div>
+  );
 
   return (
-    <div>
-      {/* Estilos */}
+    <div style={{ width: "100%" }}>
       <style>{style}</style>
-
-      {/* Modal */}
-      {relatorios && (
-        <div className="modal">
-          <div className="report-modal">
-            <div>
-              <div>
-                <input placeholder="Data inicial"></input>à
-                <input placeholder="Data final"></input>
-              </div>
-              <button onClick={() => setRelatorios(false)}>X</button>
-            </div>
-            <table>
-              <tr>
-                <th></th>
-                <th>Estado</th>
-                <th>Tipo</th>
-                <th>Automações incluídas</th>
-                <th>Criado em</th>
-                <th>Download em</th>
-              </tr>
-              <tbody>{modalTableContent}</tbody>
-            </table>
-          </div>
+      <Dialog
+        visible={relatorios}
+        maximizable
+        onHide={() => setRelatorios(false)}
+      >
+        <div>
+          <Calendar
+            value={dates}
+            onChange={(e) => setDates(e.value)}
+            selectionMode="range"
+            placeholder="Selecione um período"
+            readOnlyInput
+            showButtonBar
+          />
+          <DataTable value={report.slice(0, 10)}>
+            <Column field="status" header="Estado" />
+            <Column field="type" header="Tipo" />
+            <Column field="includedAutomations" header="Automações incluídas" />
+            <Column field="createdAt" header="Criado em" />
+            <Column field="donwloadedAt" header="Download em" />
+          </DataTable>
         </div>
-      )}
+      </Dialog>
 
       <div className="tab-content">
         <div className="tab-header">
           <div className="header-opts">
             <h1>Mesa do advogado</h1>
-            <input
-              className="tab-header__input"
-              placeholder="Busque pelo nome do perfil"
-            ></input>
+            <span className="p-input-icon-left">
+              <i className="pi pi-search" />
+              <InputText
+                className="tab-header__input"
+                placeholder="Busque pelo nome do perfil"
+              />
+            </span>
           </div>
           <div className="header-opts">
-            <span>Total listado: 0</span>
-            <span>Total selecionado: 0</span>
+            <span className="header-opts__total">Total listado: 0</span>
+            <span className="header-opts__total">Total selecionado: 0</span>
             <div>
-              <input
-                className="tab-header__input"
-                placeholder="Data inicial"
-              ></input>
-              à
-              <input
-                className="tab-header__input"
-                placeholder="Data final"
-              ></input>
+              <Calendar
+                value={dates}
+                onChange={(e) => setDates(e.value)}
+                selectionMode="range"
+                placeholder="Selecione um período"
+                readOnlyInput
+                showButtonBar
+              />
             </div>
-            <button id="relatorios-btn">Relatórios</button>
+            <Button
+              id="relatorios-btn"
+              severity="warning"
+              label="Relatórios"
+              onClick={() => setRelatorios(true)}
+            />
           </div>
         </div>
       </div>
-
       <div className="status-selector">
-        <div
+        <Card
           className="status-selector__item"
-          style={{ background: "#817b78" }}
+          style={{
+            background:
+              "linear-gradient(100deg, rgb(127, 121, 118) 0%, rgb(216, 206, 201) 100%)",
+          }}
         >
-          <span className="status-selector__label">1</span>
-          Sem intimações
-        </div>
-        <div
+          <div className="status-selector__label">1</div>
+          <div className="status-selector__text">Sem intimações</div>
+        </Card>
+        <Card
           className="status-selector__item"
-          style={{ background: "#0eef72" }}
+          style={{
+            background:
+              "linear-gradient(100deg, rgb(7, 238, 111) 0%, rgb(157, 255, 175) 100%)",
+          }}
         >
-          <span className="status-selector__label">1</span>
-          Finalizado
-        </div>
-        <div
+          <div className="status-selector__label">1</div>
+          <div className="status-selector__text">Finalizado</div>
+        </Card>
+        <Card
           className="status-selector__item"
-          style={{ background: "#e05f56" }}
+          style={{
+            background:
+              "linear-gradient(100deg, rgb(233, 93, 82) 0%, rgb(255, 157, 157) 100%)",
+          }}
         >
-          <span className="status-selector__label">1</span>
-          Erro ao listar
-        </div>
+          <div className="status-selector__label">1</div>
+          <div className="status-selector__text">Erro ao listar</div>
+        </Card>
       </div>
-
       <div className="execution-container">
         <aside className="execution-selector" id="execution-selector">
           <div
@@ -149,42 +178,93 @@ const HomeExecutions = () => {
         </aside>
 
         <aside className="execution-table-container">
-          <div>
-            <b>Detalhamentos de erro</b>
+          <Accordion multiple>
+            <AccordionTab header="Detalhamentos de erro">
+              <DataTable
+                value={[
+                  {
+                    value: (
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "1rem",
+                        }}
+                      >
+                        <span>00000000000000000000000000000000000000000</span>
+                        <Button
+                          severity="info"
+                          size="small"
+                          label={<i className="pi pi-copy" />}
+                        />
+                      </div>
+                    ),
+                  },
+                ]}
+              >
+                <Column field="value" header="Request ID" />
+              </DataTable>
+            </AccordionTab>
+            <AccordionTab header="Erros de comarca">
+              <DataTable
+                value={[
+                  {
+                    value: (
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "1rem",
+                        }}
+                      >
+                        <span>00000000000000000000000000000000000000000</span>
+                        <Button
+                          severity="danger"
+                          size="small"
+                          label={<i className="pi pi-copy" />}
+                        />
+                      </div>
+                    ),
+                  },
+                ]}
+              >
+                <Column field="value" header="Nome" />
+              </DataTable>
+            </AccordionTab>
+          </Accordion>
 
-            <table>
-              <thead>
-                <tr>
-                  <th>Request ID</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <span>00000000000000000000000000000000000000000</span>
-                    <button>Copiar</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="buttons">
+            <Button
+              label="Executados 0"
+              severity="secondary"
+              size="small"
+              outlined
+            />
+            <Button
+              label="Não executados 1"
+              severity="secondary"
+              size="small"
+              outlined
+            />
           </div>
 
-          <div>
-            <button>Executados 0</button>
-            <button>Não executados 1</button>
-          </div>
-
-          <table id="execution-table">
-            <thead>
-              <tr>
-                <th>Processo</th>
-                <th>Data de Início</th>
-                <th>Evento</th>
-                <th>Parte</th>
-              </tr>
-            </thead>
-            <tbody>{tableContent}</tbody>
-          </table>
+          <DataTable
+            id="execution-table"
+            paginator
+            rows={10}
+            filters={filters}
+            globalFilterFields={["processo", "dataInicio", "evento", "parte"]}
+            filterDisplay="row"
+            header={header}
+            value={execution
+              .map((e, i) => ({ ...e, evento: `${e.evento} - ${i + 1}` }))
+              .slice(0, 30)}
+          >
+            <Column header="Processo" filter field="processo" />
+            <Column header="Data de Início" filter field="dataInicio" />
+            <Column header="Evento" filter field="evento" />
+            <Column header="Parte" filter field="parte" />
+          </DataTable>
         </aside>
       </div>
     </div>

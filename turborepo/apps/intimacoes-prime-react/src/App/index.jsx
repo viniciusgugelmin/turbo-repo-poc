@@ -46,7 +46,7 @@ function App() {
     execucoes: <HomeExecutions />,
   };
 
-  return <div>{templates[tab]}</div>;
+  return <div style={{ width: "100%" }}>{templates[tab]}</div>;
 }
 
 export { App };
