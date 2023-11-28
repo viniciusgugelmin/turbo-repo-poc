@@ -8,8 +8,8 @@ const TabsComponents = ({ items, contents }) => {
         <TabsPresentation
             items={items}
             activeIndex={currentTab}
-            onChange={({ index }) => { setCurrentTab(index) }}
-            content={contents[currentTab]}
+            onChange={(index) => { setCurrentTab(index) }}
+            contents={contents}
         />
     )
 }

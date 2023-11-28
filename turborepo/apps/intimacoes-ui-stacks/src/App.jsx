@@ -1,5 +1,5 @@
 import React from 'react'
-import { DatePicker, Header, Input, Table, Tabs } from './components'
+import { Collection, DatePicker, Header, Input, Table, Tabs } from './components'
 
 import report from './assets/report.json'
 
@@ -36,16 +36,27 @@ function App() {
                   <DatePicker mode="range" />
                 </div>
               </div>
-              <Table
-                value={report.slice(0, 10)}
-                columns={[
-                  { field: "status", header: "Estado" },
-                  { field: "type", header: "Tipo" },
-                  { field: "includedAutomations", header: "Automações incluídas" },
-                  { field: "createdAt", header: "Criado em" },
-                  { field: "downloadedAt", header: "Download em" }
-                ]}
-              />
+
+              <div className='flex flex-col gap-2'>
+                <Collection
+                  items={[
+                    { content: "2", label: "Sem intimações", color: "slate" },
+                    { content: "2", label: "Finalizado", color: "green" },
+                    { content: "1", label: "Erro ao listar", color: "red" },
+                  ]}
+                />
+
+                <Table
+                  value={report.slice(0, 10)}
+                  columns={[
+                    { field: "status", header: "Estado" },
+                    { field: "type", header: "Tipo" },
+                    { field: "includedAutomations", header: "Automações incluídas" },
+                    { field: "createdAt", header: "Criado em" },
+                    { field: "downloadedAt", header: "Download em" }
+                  ]}
+                />
+              </div>
             </div>
           )]}
         />

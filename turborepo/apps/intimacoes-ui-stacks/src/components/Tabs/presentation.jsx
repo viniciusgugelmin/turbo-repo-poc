@@ -1,23 +1,35 @@
 import React from 'react'
-import { TabMenu } from "primereact/tabmenu"
+import { TabList, Tabs, Tab, TabPanel } from 'react-aria-components'
 
-const TabsPresentation = ({ items, activeIndex, onChange, content }) => {
+const TabsPresentation = ({ items, activeIndex, onChange, contents }) => {
 
     return (
-        <>
-            <TabMenu
-                pt={{
-                    menuitem: ({ context }) => {
-                        if (context.index === activeIndex) return { className: "p-4 bg-white rounded-t-lg" }
-                        return 'p-4'
-                    }
-                }}
-                model={items}
-                activeIndex={activeIndex}
-                onTabChange={onChange}
-            />
-            <div className='bg-white min-h-content' children={content} />
-        </>
+        <Tabs
+            selectedKey={activeIndex}
+            onSelectionChange={onChange}
+        >
+            <TabList className="flex">
+                {items.map(({ label }, index) => {
+                    return (
+                        <Tab
+                            className={`${index === activeIndex ? "bg-white rounded-t-md" : ""} py-2 px-4 focus:outline-none`}
+                            key={`tab-${index}-${label}`}
+                            id={index}
+                            children={label}
+                        />
+                    )
+                })}
+            </TabList>
+
+            {contents.map((content, index) => (
+                <TabPanel
+                    className="bg-white rounded-b-lg rounded-tr-lg shadow-md"
+                    key={`tab-content-${index}`}
+                    id={index}
+                    children={content}
+                />
+            ))}
+        </Tabs>
     )
 }
 
