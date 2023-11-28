@@ -1,5 +1,5 @@
 import React from 'react'
-import { Calendar, Header, Input, Table, Tabs } from './components'
+import { DatePicker, Header, Input, Table, Tabs } from './components'
 
 import report from './assets/report.json'
 
@@ -26,13 +26,14 @@ function App() {
                 <div className='flex gap-4'>
                   <h1 className='text-2xl font-semibold'>Mesa do Advogado</h1>
                   <Input
-                    search rounded inverted
+                    rounded reverse
+                    mode="search"
                     placeholder="Busque pelo nome de perfil"
-                    width="60"
+                    width="80"
                   />
                 </div>
                 <div>
-                  <Calendar range />
+                  <DatePicker mode="range" />
                 </div>
               </div>
               <Table

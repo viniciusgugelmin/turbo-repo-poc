@@ -25,7 +25,7 @@ const HeaderPresentation = ({ navbar }) => {
                 )}
             </nav>
             <div className='flex gap-4 items-center'>
-                <Input placeholder="Buscar por um robô..." search />
+                <Input placeholder="Buscar por um robô..." mode="search" />
                 <span className='text-white'>user@email.com</span>
             </div>
         </Header>
