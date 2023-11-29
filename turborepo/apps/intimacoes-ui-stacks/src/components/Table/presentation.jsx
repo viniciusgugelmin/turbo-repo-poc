@@ -7,8 +7,24 @@ const Table = styled(DataTable)``
 
 const TablePresentation = ({ value, columns }) => {
     return (
-        <Table value={value}>
-            {columns.map((props) => <Column {...props} />)}
+        <Table
+            resizableColumns
+            value={value}
+            className="p-4"
+            pt={{
+                root: "w-full",
+                thead: "text-gray-400",
+                headerRow: "border-b-2 border-gray-200",
+            }}
+        >
+            {columns.map((props) => (
+                <Column
+                    pt={{
+                        root: "border border-gray-200"
+                    }}
+                    {...props}
+                />
+            ))}
         </Table>
     )
 }

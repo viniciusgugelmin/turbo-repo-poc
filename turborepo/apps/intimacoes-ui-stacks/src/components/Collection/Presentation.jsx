@@ -4,13 +4,19 @@ const CollectionPresentation = ({ items }) => {
 
     return (
         <Menu>
-            <MenuItem className="focus:outline-none flex gap-2">
+            <MenuItem className="focus:outline-none flex gap-4">
                 {items.map(({ content, label, color }, index) => {
+
+                    const gradientClass = `bg-gradient-to-r from-${String(color)}-400 to-${String(color)}-200`
 
                     return (
                         <div
                             key={`menu-item-${index}`}
-                            className={`bg-gradient-to-r from-${color}-400 to-90% flex flex-col shadow rounded-lg px-4 w-44 py-2 text-white`}
+                            className={`
+                                ${gradientClass}
+                                flex flex-col shadow rounded-lg p-2 w-44 text-white
+                                cursor-pointer
+                            `}
                         >
                             <span className='text-5xl'>{content}</span>
                             <span className='text-lg font-medium'>{label}</span>

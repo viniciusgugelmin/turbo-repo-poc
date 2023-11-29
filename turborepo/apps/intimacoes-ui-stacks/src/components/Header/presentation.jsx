@@ -20,7 +20,7 @@ const HeaderPresentation = ({ navbar }) => {
             <nav className='flex gap-4 text-white'>
                 {navbar.map(({ label }, index) =>
                     <div key={`header-buttons-${index}`} className='flex justify-center flex-col items-center'>
-                        <div children={label} className='text-sm' />
+                        <div children={label} />
                     </div>
                 )}
             </nav>

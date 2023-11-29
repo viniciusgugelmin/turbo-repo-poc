@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import TabsPresentation from './presentation'
+import TabsPresentation from './Presentation'
 
 const TabsComponents = ({ items, contents }) => {
     const [currentTab, setCurrentTab] = useState(0)
